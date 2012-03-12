@@ -30,3 +30,19 @@ def test_calc_center_point_of_canvas():
 def test_calculate_radius_from_center():
     r = calculate_radius_from_center(Point(0,0),Point(1,1))
     print 'r: %s' % (repr(r))
+
+def test_calculate_points_angle_from_center():
+    a = current_angle_in_rad(Point(0,0),Point(1,1))
+    print 'a: %s' % (repr(a))
+
+def test_calculate_points_angle_from_center_for_zero():
+    a = current_angle_in_rad(Point(0,0),Point(0,0))
+    print 'a: %s' % (repr(a))
+
+def test_rotate_a_point():
+    c = Point(0,0)
+    p = Point(1,1) 
+
+    rot = rotate_a_point(p,.785,c)
+    
+    print 'rot %s:%s' % (rot.x,rot.y)
