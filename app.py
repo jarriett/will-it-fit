@@ -1,23 +1,33 @@
-from wif_lib.geometry import Point 
+from wif_lib.geometry import  *
+import pygame
 
-p = Point(1,2)
+pt1 = Point(600,240)
+pt2 = Point(40,240)
+pt3 = Point(320,120)
+pt4 = Point(420,120)
 
-print p
+pts = [pt1,pt2,pt3,pt4]
 
-#screen = pygame.display.set_mode((640, 480))
-#running = 1 
-#while running:
-#    event = pygame.event.poll()
-#    if event.type == pygame.QUIT:
-#        running = 0
-#    screen.fill((0, 0, 0))
-#        
-#    p1 = Point(600,240)
-#    p2 = Point(40,240)
-#    
-#    
-#    #Draw a horizontal line
-#    pygame.draw.line(screen, (0, 0, 255), (p1.x, p1.y), (p2.x, p2.y))
-#    
-#    #draw to screen
-#    pygame.display.flip()
+lines = create_enclosed_shape_from_points(pts)
+
+screen = pygame.display.set_mode((640, 480))
+running = 1 
+while running:
+    event = pygame.event.poll()
+    if event.type == pygame.QUIT:
+        running = 0
+    screen.fill((0, 0, 0))
+        
+    p1 = Point(600,240)
+    p2 = Point(40,240)
+    
+    
+    #Draw a horizontal line
+    for line in lines:
+        pygame.draw.line(screen,
+            (0, 0, 255),
+            (line.start.x, line.start.y),
+            (line.finish.x, line.finish.y))
+    
+    #draw to screen
+    pygame.display.flip()

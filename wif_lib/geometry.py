@@ -4,6 +4,13 @@ class Point:
     def __init__(self,x,y):
         self.x = x
         self.y = y
+
+class Line:
+  def __init__(self,start,finish):
+      self.start = start
+      self.finish = finish
+
+
 #TODO
 # -Take a single point and calculate a rotated pair
 # -Take list of points and return rotated list
@@ -42,3 +49,14 @@ def get_center_of_canvas(x,y):
     y = y/2
     return Point(x,y)
 
+def create_enclosed_shape_from_points(pts):
+    lines = [] 
+
+    for counter,pt in enumerate(pts):
+      lines.append(Line(pt,pts[counter+1]))
+      if counter == len(pts) -2:
+        break
+    
+    lines.append(Line(pts[len(pts)-1],pts[0]))
+      
+    return lines 

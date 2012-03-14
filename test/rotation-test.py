@@ -46,3 +46,32 @@ def test_rotate_a_point():
     rot = rotate_a_point(p,.785,c)
     
     print 'rot %s:%s' % (rot.x,rot.y)
+    
+
+def test_create_enclosed_shape_from_points():
+    #input - 3 points  - (0,0), (2,0) , (1,1)
+    #output - 3 lines  - 
+    #     1.  (0,0) -> (2,0)
+    #     2.  (2,0) -> (1,1)
+    #     3.  (1,1) -> (0,0)
+    ins = [Point(0,0),Point(2,0),Point(1,1)]
+    out = create_enclosed_shape_from_points(ins)
+    
+    #line 1
+    line1 = out[0]
+    assert(line1.start.x == 0)
+    assert(line1.start.y == 0)
+    assert(line1.finish.x == 2)
+    assert(line1.finish.y == 0)
+    
+    line2 = out[1]
+    assert(line2.start.x == 2)
+    assert(line2.start.y == 0)
+    assert(line2.finish.x == 1)
+    assert(line2.finish.y == 1)
+
+    line3 = out[2]
+    assert(line3.start.x == 1)
+    assert(line3.start.y == 1)
+    assert(line3.finish.x == 0)
+    assert(line3.finish.y == 0)
