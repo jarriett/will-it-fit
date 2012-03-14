@@ -1,4 +1,4 @@
-from rotation_solution import *
+from wif_lib.geometry import *
 from math import pi
 
 def test_at_90_degree_angle_should_be_radius():
