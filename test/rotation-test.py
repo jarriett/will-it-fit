@@ -75,3 +75,14 @@ def test_create_enclosed_shape_from_points():
     assert(line3.start.y == 1)
     assert(line3.finish.x == 0)
     assert(line3.finish.y == 0)
+
+def test_rotate_a_point_640480_canvas():
+    c = Point(320,240)
+    p = Point(600,240) 
+
+    print p
+    print c
+
+    radius = calculate_radius_from_center(p,c)
+    assert (radius == 280)
+    print radius
