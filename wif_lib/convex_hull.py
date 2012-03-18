@@ -38,7 +38,7 @@ def generate_convex_hull(P):
   return result  
 
 def is_right_turn(points):
-  return calc_determinant(points)
+  return calc_determinant(points)<0
 
 def calc_determinant(points):
   p = points[0].get_tuple()

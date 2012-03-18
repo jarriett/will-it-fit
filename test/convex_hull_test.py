@@ -78,7 +78,7 @@ def test_is_right_turn_is_false():
 
   print 'flag :  %s' % (flag)
 
-  assert(flag)
+  assert(not flag)
 
 def test_remove_duplicates():
 
