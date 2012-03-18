@@ -29,10 +29,6 @@ def generate_convex_hull(P):
     while len(lower) > 2 and not is_right_turn(lower[-3:]):
       del lower[-2]
 
-  ## Remove duplicates.
-  del lower[0]
-  del lower[-1]
-
   ## Concatenate both halfs and return.
   #return tuple(upper + lower)return 0
   upper += lower
